@@ -1,0 +1,13 @@
+{
+  "name": "break-bot",
+  "version": "1.0.0",
+  "description": "A bot to remind about the afternoon break around 3.30pm",
+  "main": "index.js",
+  "author": "Fangyi Zhou <me@fangyi.io>",
+  "license": "MIT",
+  "dependencies": {
+    "eris": "^0.13.3",
+    "huh": "^2.0.1",
+    "moment": "^2.29.1"
+  }
+}
