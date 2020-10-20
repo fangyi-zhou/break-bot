@@ -30,6 +30,7 @@ function sendMessage() {
     const messageContent = getMessageContent();
     channel.createMessage(messageContent);
   }
+  scheduleMessage();
 }
 
 function isHoliday(moment) {
