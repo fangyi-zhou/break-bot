@@ -43,6 +43,7 @@ function getTimeToNextBreak() {
   let nextBreak = moment();
   nextBreak.hour(15);
   nextBreak.minute(30);
+  nextBreak.second(0);
   if (!nextBreak.isAfter(now)) {
     nextBreak.add(1, 'd');
   }
