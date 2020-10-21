@@ -6,6 +6,7 @@ const moment = require("moment-timezone");
 let bot = new Eris(process.env.DISCORD_BOT_TOKEN);
 
 let channelsToMessage;
+let scheduledSend;
 
 function loadChannelsToMessage() {
   let channels = [];
@@ -30,6 +31,7 @@ function sendMessage() {
     const messageContent = getMessageContent();
     channel.createMessage(messageContent);
   }
+  scheduledSend = undefined;
   scheduleMessage();
 }
 
@@ -56,9 +58,13 @@ function getTimeToNextBreak() {
 }
 
 function scheduleMessage() {
+  if (scheduledSend !== undefined) {
+    console.log("Not scheduling another message because a message is scheduled");
+    return;
+  }
   const offset = getTimeToNextBreak();
   console.log(`Scheduled break message after ${offset} ms`)
-  setTimeout(sendMessage, offset);
+  scheduledSend = setTimeout(sendMessage, offset);
 }
 
 bot.on("ready", () => {
