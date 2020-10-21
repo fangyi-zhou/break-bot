@@ -8,6 +8,7 @@
   "dependencies": {
     "eris": "^0.13.3",
     "huh": "^2.0.1",
-    "moment": "^2.29.1"
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.31"
   }
 }

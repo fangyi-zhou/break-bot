@@ -1,7 +1,7 @@
 const Eris = require("eris");
 const process = require("process");
 const excuses = require("huh");
-const moment = require("moment");
+const moment = require("moment-timezone");
 
 let bot = new Eris(process.env.DISCORD_BOT_TOKEN);
 
@@ -41,6 +41,7 @@ function isHoliday(moment) {
 function getTimeToNextBreak() {
   const now = moment();
   let nextBreak = moment();
+  nextBreak.tz('Europe/London');
   nextBreak.hour(15);
   nextBreak.minute(30);
   nextBreak.second(0);
