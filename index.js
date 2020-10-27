@@ -29,6 +29,7 @@ function getMessageContent() {
 function sendMessage() {
   for (const channel of channelsToMessage) {
     const messageContent = getMessageContent();
+    try {}
     channel.createMessage(messageContent);
   }
   scheduledSend = undefined;
@@ -71,6 +72,10 @@ bot.on("ready", () => {
   loadChannelsToMessage();
   scheduleMessage();
   console.log("Bot ready")
+});
+
+bot.on("error", (err) => {
+  console.log("Error: %o", err)
 });
 
 bot.connect();
