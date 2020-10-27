@@ -29,7 +29,6 @@ function getMessageContent() {
 function sendMessage() {
   for (const channel of channelsToMessage) {
     const messageContent = getMessageContent();
-    try {}
     channel.createMessage(messageContent);
   }
   scheduledSend = undefined;
