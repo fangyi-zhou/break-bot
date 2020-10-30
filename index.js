@@ -41,12 +41,12 @@ function isHoliday(moment) {
 }
 
 function getTimeToNextBreak() {
-  const now = moment();
   let nextBreak = moment();
   nextBreak.tz('Europe/London');
   nextBreak.hour(15);
   nextBreak.minute(30);
   nextBreak.second(0);
+  const now = moment();
   if (!nextBreak.isAfter(now)) {
     nextBreak.add(1, 'd');
   }
